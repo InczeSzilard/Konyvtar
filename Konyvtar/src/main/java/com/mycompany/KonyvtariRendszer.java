@@ -1,5 +1,3 @@
-
-
 package com.mycompany;
 
 import com.mycompany.konyvtar.modell.Konyv;

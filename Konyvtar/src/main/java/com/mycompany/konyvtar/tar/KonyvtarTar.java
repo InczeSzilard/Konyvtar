@@ -17,7 +17,7 @@ public interface KonyvtarTar {
 
     /**
      * @throws java.nio.file.NoSuchFileException if the file doesn't exist
-     * @throws com.mycompany.konyvtarirendszer.kivetel.SerultAdatfajlKivetel if it exists but is corrupt
+     * @throws com.mycompany.konyvtar.exceptions.SerultAdatfajlKivetel if it exists but is corrupt
      */
     Konyvtar betolt(Path fajl) throws IOException;
 }
