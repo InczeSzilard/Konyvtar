@@ -6,7 +6,7 @@ import java.util.Objects;
 
 /*
  * A registered reader. Immutable.
- * Two readers are equal if their reader card number (olvasójegy-szám) is equal -
+ * Two readers are equal if their reader card number (olvasojegy-szam) is equal -
  * two different people can have the same name, but never the same card.
  */
 public final class Olvaso implements Serializable {

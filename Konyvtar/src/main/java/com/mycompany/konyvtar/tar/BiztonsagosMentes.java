@@ -1,12 +1,13 @@
 package com.mycompany.konyvtar.tar;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.channels.FileChannel;
 import java.nio.file.AtomicMoveNotSupportedException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.nio.file.StandardOpenOption;
 
 /*
  * Crash-safe file writing, shared by both storages:
@@ -39,10 +40,11 @@ public final class BiztonsagosMentes {
         // Same folder -> same disk, which ATOMIC_MOVE requires.
         Path ideiglenes = Files.createTempFile(mappa, celAbszolut.getFileName().toString() + ".", ".tmp");
         try {
-            try (FileOutputStream fajlKi = new FileOutputStream(ideiglenes.toFile())) {
-                kiiro.ir(fajlKi);
-                fajlKi.flush();
-                fajlKi.getFD().sync(); // really on the disk, not just in the OS cache
+            try (OutputStream fajlKi = Files.newOutputStream(ideiglenes)) {
+                kiiro.ir(fajlKi); // the storage may close its own wrapping stream - closing twice is harmless
+            }
+            try (FileChannel csatorna = FileChannel.open(ideiglenes, StandardOpenOption.WRITE)) {
+                csatorna.force(true); // really on the disk, not just in the OS cache
             }
             try {
                 Files.move(ideiglenes, celAbszolut, StandardCopyOption.ATOMIC_MOVE);

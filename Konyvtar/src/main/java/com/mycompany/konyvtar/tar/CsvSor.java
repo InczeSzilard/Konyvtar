@@ -7,7 +7,7 @@ import java.util.List;
  * Turns a list of fields into one CSV line and back.
  * Separator is ';'. A field containing ';' or '"' is put in quotes, and a '"'
  * inside it is doubled - the usual CSV rule, so Excel can open the file too.
- *   Example:  Rómeó és Júlia; avagy "a szerelem"  ->  "Rómeó és Júlia; avagy ""a szerelem"""
+ *   Example:  Romeo es Julia; avagy "a szerelem"  ->  "Romeo es Julia; avagy ""a szerelem"""
  */
 final class CsvSor {
 

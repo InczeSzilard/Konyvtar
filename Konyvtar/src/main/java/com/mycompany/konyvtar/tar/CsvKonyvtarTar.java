@@ -26,9 +26,9 @@ import java.util.Objects;
  * One record per line; the first field says what the line is:
  *
  *   # comment lines and empty lines are ignored
- *   KONYV;isbn;cím;szerző;kiadás éve;példányszám
- *   OLVASO;olvasójegy-szám;név
- *   KOLCSONZES;isbn;olvasójegy-szám;dátum (ÉÉÉÉ-HH-NN);határidő (ÉÉÉÉ-HH-NN)
+ *   KONYV;isbn;cim;szerzo;kiadas eve;peldanyszam
+ *   OLVASO;olvasojegy-szam;nev
+ *   KOLCSONZES;isbn;olvasojegy-szam;datum (EEEE-HH-NN);hatarido (EEEE-HH-NN)
  *
  * Any broken line stops the loading with a SerultAdatfajlKivetel that names
  * the file and the line number.

@@ -19,7 +19,7 @@ public final class Konyv implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    // Hungarian alphabetical order ("Á" next to "A", not after "Z"), case-insensitive.
+    // Hungarian alphabetical order (accented letters next to their base letter, not after "Z"), case-insensitive.
     private static final Collator MAGYAR_ABC = Collator.getInstance(Locale.forLanguageTag("hu-HU"));
 
     static {
@@ -93,6 +93,6 @@ public final class Konyv implements Serializable {
 
     @Override
     public String toString() {
-        return cim + " – " + szerzo + " (" + kiadasEve + "), ISBN: " + isbn + ", " + peldanyszam + " db";
+        return cim + " - " + szerzo + " (" + kiadasEve + "), ISBN: " + isbn + ", " + peldanyszam + " db";
     }
 }
